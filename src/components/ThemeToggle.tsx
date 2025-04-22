@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Sun, Moon } from "lucide-react";
+import { Toggle } from "@/components/ui/toggle";
 
 const ThemeToggle = () => {
   const [theme, setTheme] = useState(() =>
@@ -8,22 +10,43 @@ const ThemeToggle = () => {
   );
 
   useEffect(() => {
-    document.documentElement.classList.toggle('dark', theme === 'dark');
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
     localStorage.setItem('theme', theme);
   }, [theme]);
 
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleChange = () => {
+      if (!localStorage.getItem('theme')) {
+        setTheme(mediaQuery.matches ? 'dark' : 'light');
+      }
+    };
+
+    if (!localStorage.getItem('theme')) {
+      handleChange();
+    }
+
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+
   return (
-    <button
-      className="p-2 rounded-full bg-gray-200/70 dark:bg-gray-800/80 border border-gray-100 dark:border-gray-700 transition shadow hover:bg-gray-300 dark:hover:bg-gray-700"
-      onClick={() => setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))}
+    <Toggle
+      pressed={theme === 'dark'}
+      onPressedChange={(pressed) => setTheme(pressed ? 'dark' : 'light')}
       aria-label="Toggle theme"
+      className="p-2 rounded-full bg-white/90 dark:bg-gray-800/90 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-200"
     >
       {theme === 'dark' ? (
-        <svg width="24" height="24" fill="none" stroke="gold" strokeWidth={2} viewBox="0 0 24 24" className="w-5 h-5"><path d="M17.657 16.657A8 8 0 018.343 7.343 8.001 8.001 0 0012 20a8.001 8.001 0 005.657-3.343z"></path></svg>
+        <Moon className="h-5 w-5 text-yellow-400" />
       ) : (
-        <svg width="24" height="24" fill="none" stroke="orange" strokeWidth={2} viewBox="0 0 24 24" className="w-5 h-5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2m11-11h-2M3 12H1m16.24-6.24l-1.42 1.42m-9.9 9.9l-1.42 1.42m14.14 0l-1.42-1.42m-9.9-9.9l-1.42-1.42"/></svg>
+        <Sun className="h-5 w-5 text-orange-400" />
       )}
-    </button>
+    </Toggle>
   );
 };
 

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import SearchBar from '@/components/SearchBar';
 import FoodCard from '@/components/FoodCard';
@@ -6,6 +7,9 @@ import OffersCarousel from '@/components/OffersCarousel';
 import Cart from '@/components/Cart';
 import { foodItems } from '@/data/mockData';
 import ThemeToggle from '@/components/ThemeToggle';
+import { useAuth } from '@/hooks/useAuth';
+import { useToast } from '@/components/ui/use-toast';
+import { Link } from 'react-router-dom';
 
 interface CartItem {
   id: number;
@@ -21,6 +25,9 @@ const Index = () => {
   const [filteredItems, setFilteredItems] = useState(foodItems);
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const { isAuthenticated, user } = useAuth();
+  const { toast } = useToast();
+  const navigate = useNavigate();
 
   useEffect(() => {
     let result = [...foodItems];
@@ -40,6 +47,19 @@ const Index = () => {
   }, [searchQuery, selectedCategory]);
 
   const handleAddToCart = (item: typeof foodItems[0]) => {
+    if (!isAuthenticated) {
+      toast({
+        title: "Please sign in",
+        description: "You need to be signed in to add items to your cart.",
+        action: (
+          <Link to="/login" className="bg-foodsy-orange text-white px-3 py-1 rounded-md text-xs">
+            Sign in
+          </Link>
+        ),
+      });
+      return;
+    }
+    
     setCartItems(prev => {
       const existingItemIndex = prev.findIndex(cartItem => cartItem.id === item.id);
       
@@ -78,20 +98,17 @@ const Index = () => {
   const totalCartItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-foodsy-orange/5 to-foodsy-green/10 transition-colors duration-300">
-      <div className="absolute top-5 right-6 z-50">
-        <ThemeToggle />
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-foodsy-orange/5 to-foodsy-green/10 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
       <Navbar 
         cartCount={totalCartItems} 
         onCartClick={() => setIsCartOpen(true)} 
       />
-      <section className="bg-gradient-to-r from-foodsy-orange/20 to-foodsy-green/10 py-16 md:py-20 px-2 md:px-4">
+      <section className="bg-gradient-to-r from-foodsy-orange/20 to-foodsy-green/10 dark:from-foodsy-orange/10 dark:to-gray-800 py-16 md:py-20 px-2 md:px-4">
         <div className="container mx-auto text-center mb-8">
           <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-white mb-4 drop-shadow">
             Delicious Food, <span className="text-foodsy-orange">Delivered Fast</span>
           </h1>
-          <p className="text-lg md:text-2xl text-gray-600 max-w-2xl mx-auto mb-10">
+          <p className="text-lg md:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-10">
             Order your favorite meals from the best restaurants in town and get them delivered to your door.
           </p>
           <div className="flex justify-center">
@@ -119,8 +136,8 @@ const Index = () => {
           </h2>
           {filteredItems.length === 0 ? (
             <div className="text-center py-12">
-              <h3 className="text-xl text-gray-500">No items found</h3>
-              <p className="text-gray-400 mt-2">Try a different search or category</p>
+              <h3 className="text-xl text-gray-500 dark:text-gray-400">No items found</h3>
+              <p className="text-gray-400 dark:text-gray-500 mt-2">Try a different search or category</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
@@ -169,7 +186,7 @@ const Index = () => {
               <div>
                 <h4 className="font-semibold mb-3">About</h4>
                 <ul className="space-y-2 text-gray-300">
-                  <li><a href="#" className="hover:text-white transition-colors">About Us</a></li>
+                  <li><Link to="/about" className="hover:text-white transition-colors">About Us</Link></li>
                   <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
                   <li><a href="#" className="hover:text-white transition-colors">Partners</a></li>
                 </ul>

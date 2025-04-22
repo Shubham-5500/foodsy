@@ -1,3 +1,4 @@
+
 import { IndianRupee } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
@@ -13,6 +14,7 @@ const Checkout = () => {
           <h2 className="text-2xl font-extrabold text-gray-900">Checkout</h2>
         </div>
         <div className="flex-1">
+          {/* In real app, this info would come from store/cart context */}
           <div className="bg-gray-50 rounded-lg p-5 shadow-inner mb-6">
             <div className="flex justify-between items-center mb-2">
               <span className="text-gray-700 font-semibold">Total (with GST 18% &amp; Delivery Fee)</span>

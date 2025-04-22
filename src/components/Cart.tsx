@@ -38,7 +38,6 @@ const Cart = ({
   }, [items]);
 
   const gst = parseFloat((subtotal * 0.18).toFixed(2));
-
   const deliveryFee = 40;
   const total = parseFloat((subtotal + gst + deliveryFee).toFixed(2));
 
