@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Navigate, useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
@@ -15,7 +14,6 @@ const Login = () => {
   const { toast } = useToast();
   const navigate = useNavigate();
 
-  // If already logged in, redirect to home
   if (isAuthenticated) {
     return <Navigate to="/" />;
   }

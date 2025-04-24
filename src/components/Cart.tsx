@@ -48,8 +48,7 @@ const Cart = ({
       <div className="w-full max-w-md bg-white dark:bg-foodsy-darkGray h-full shadow-2xl animate-slide-in overflow-y-auto rounded-l-2xl border-l-4 border-foodsy-orange/80 flex flex-col">
         {/* Header */}
         <div className="sticky top-0 bg-white z-30 border-b border-gray-100 shadow-sm px-5 py-4 flex items-center justify-between">
-          <h2 className="text-xl font-extrabold flex items-center gap-2">
-            <IndianRupee size={24} className="text-foodsy-orange" />
+          <h2 className="text-2xl font-extrabold flex items-center gap-2">
             Cart
             <span className="ml-2 bg-foodsy-orange text-white rounded-full w-7 h-7 flex items-center justify-center text-base font-bold select-none shadow">
               {items.length}
@@ -161,7 +160,7 @@ const Cart = ({
                 </div>
               </div>
               <Button
-                className="w-full mt-6 bg-gradient-to-tr from-foodsy-orange to-foodsy-green hover:from-foodsy-green hover:to-foodsy-orange text-white py-3 text-lg rounded-xl font-bold shadow-lg transition"
+                className="w-full mt-6 bg-foodsy-orange hover:from-foodsy-green hover:bg-foodsy-green text-white py-3 text-lg rounded-xl font-bold shadow-lg transition"
                 onClick={() => {
                   onClose();
                   navigate('/checkout');

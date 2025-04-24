@@ -1,8 +1,8 @@
-
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import ThemeToggle from '@/components/ThemeToggle';
 import { useAuth } from '@/hooks/useAuth';
+import Footer from '@/components/Footer';
 
 const About = () => {
   const { isAuthenticated } = useAuth();
@@ -19,7 +19,7 @@ const About = () => {
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">About Foodsy</h1>
           <div className="bg-white/80 dark:bg-gray-800/80 rounded-2xl p-6 shadow-lg">
             <p className="text-lg mb-4 text-gray-700 dark:text-gray-300">
-              Welcome to Foodsy, where culinary excellence meets convenience. Founded in 2023, we've 
+              Welcome to Foodsy, where culinary excellence meets convenience. Founded in 2025, we've 
               revolutionized the way people experience food delivery in India.
             </p>
             <p className="text-lg mb-4 text-gray-700 dark:text-gray-300">
@@ -91,48 +91,7 @@ const About = () => {
           </Link>
         </section>
       </div>
-
-      <footer className="bg-gray-900 bg-gradient-to-r from-foodsy-orange/60 to-foodsy-green/30 text-white py-10 px-2 md:px-8">
-        <div className="container mx-auto">
-          <div className="flex flex-col md:flex-row md:justify-between gap-8">
-            <div>
-              <h3 className="text-2xl font-bold mb-4 tracking-wider drop-shadow">Foodsy<span className="text-foodsy-green">.</span></h3>
-              <p className="text-gray-100 max-w-xs text-base">
-                The best food delivery service in town. Fast, reliable, and delicious.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-              <div>
-                <h4 className="font-semibold mb-3">About</h4>
-                <ul className="space-y-2 text-gray-300">
-                  <li><Link to="/about" className="hover:text-white transition-colors">About Us</Link></li>
-                  <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
-                  <li><a href="#" className="hover:text-white transition-colors">Partners</a></li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-3">Support</h4>
-                <ul className="space-y-2 text-gray-300">
-                  <li><a href="#" className="hover:text-white transition-colors">Contact Us</a></li>
-                  <li><a href="#" className="hover:text-white transition-colors">FAQ</a></li>
-                  <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-3">Legal</h4>
-                <ul className="space-y-2 text-gray-300">
-                  <li><a href="#" className="hover:text-white transition-colors">Terms</a></li>
-                  <li><a href="#" className="hover:text-white transition-colors">Privacy</a></li>
-                  <li><a href="#" className="hover:text-white transition-colors">Cookies</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div className="mt-8 pt-8 border-t border-gray-800 text-center md:text-left">
-            <p className="text-gray-400">© 2025 Foodsy. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

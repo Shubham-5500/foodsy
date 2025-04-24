@@ -6,10 +6,10 @@ import FoodCard from '@/components/FoodCard';
 import OffersCarousel from '@/components/OffersCarousel';
 import Cart from '@/components/Cart';
 import { foodItems } from '@/data/mockData';
-import ThemeToggle from '@/components/ThemeToggle';
 import { useAuth } from '@/hooks/useAuth';
 import { useToast } from '@/components/ui/use-toast';
 import { Link } from 'react-router-dom';
+import Footer from '@/components/Footer';
 
 interface CartItem {
   id: number;
@@ -19,7 +19,7 @@ interface CartItem {
   image: string;
 }
 
-const Index = () => {
+const Home = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [filteredItems, setFilteredItems] = useState(foodItems);
@@ -130,7 +130,7 @@ const Index = () => {
         <div className="container mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-800 dark:text-white">
             {selectedCategory !== 'All' 
-              ? `${selectedCategory} Menu` 
+              ? `${selectedCategory} Menu`
               : 'Our Menu'}
             {searchQuery && ` – Results for "${searchQuery}"`}
           </h2>
@@ -173,49 +173,9 @@ const Index = () => {
         onUpdateQuantity={handleUpdateQuantity}
       />
       
-      <footer className="bg-gray-900 bg-gradient-to-r from-foodsy-orange/60 to-foodsy-green/30 text-white py-10 px-2 md:px-8 mt-12">
-        <div className="container mx-auto">
-          <div className="flex flex-col md:flex-row md:justify-between gap-8">
-            <div>
-              <h3 className="text-2xl font-bold mb-4 tracking-wider drop-shadow">Foodsy<span className="text-foodsy-green">.</span></h3>
-              <p className="text-gray-100 max-w-xs text-base">
-                The best food delivery service in town. Fast, reliable, and delicious.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-              <div>
-                <h4 className="font-semibold mb-3">About</h4>
-                <ul className="space-y-2 text-gray-300">
-                  <li><Link to="/about" className="hover:text-white transition-colors">About Us</Link></li>
-                  <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
-                  <li><a href="#" className="hover:text-white transition-colors">Partners</a></li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-3">Support</h4>
-                <ul className="space-y-2 text-gray-300">
-                  <li><a href="#" className="hover:text-white transition-colors">Contact Us</a></li>
-                  <li><a href="#" className="hover:text-white transition-colors">FAQ</a></li>
-                  <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-3">Legal</h4>
-                <ul className="space-y-2 text-gray-300">
-                  <li><a href="#" className="hover:text-white transition-colors">Terms</a></li>
-                  <li><a href="#" className="hover:text-white transition-colors">Privacy</a></li>
-                  <li><a href="#" className="hover:text-white transition-colors">Cookies</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div className="mt-8 pt-8 border-t border-gray-800 text-center md:text-left">
-            <p className="text-gray-400">© 2025 Foodsy. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
 
-export default Index;
+export default Home;

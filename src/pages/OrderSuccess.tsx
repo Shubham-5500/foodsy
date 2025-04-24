@@ -1,4 +1,3 @@
-
 import { IndianRupee } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
