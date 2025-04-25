@@ -28,7 +28,12 @@ const Menu = () => {
 
   return (
     <>
-    {/* <Navbar /> */}
+    <Navbar 
+        cartCount={0} 
+        onCartClick={() => {
+          console.log("Cart clicked");
+        }}
+  />
     <div className="p-8 max-w-5xl mx-auto">
       <h1 className="text-3xl font-bold mb-6">🍽️ Our Menu</h1>
       <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

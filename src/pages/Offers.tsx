@@ -4,7 +4,6 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useAuth } from '@/hooks/useAuth';
 
-// Mock data for offers - you can replace this with actual data from your API
 const offerData = [
   {
     id: 1,
@@ -169,7 +168,6 @@ export default function Offers() {
     if (activeTab === 'all') {
       setFilteredOffers(offerData);
     } else if (activeTab === 'expiring') {
-      // Get offers expiring in the next 7 days
       const sevenDaysLater = new Date();
       sevenDaysLater.setDate(today.getDate() + 7);
       
@@ -181,13 +179,7 @@ export default function Offers() {
   }, [activeTab]);
 
   const handleApplyOffer = (code) => {
-    // In a real app, you would store this code in state or context
-    // and apply it at checkout
     console.log(`Offer code ${code} applied!`);
-    // You could also redirect to menu page with the code applied
-    // navigate('/menu?offerCode=${code}');
-    
-    // For now, we'll just show an alert
     alert(`Offer code ${code} has been applied! You can now continue shopping.`);
   };
 
@@ -196,7 +188,6 @@ export default function Offers() {
       <Navbar 
         cartCount={0} 
         onCartClick={() => {
-          // This would open the cart in a real implementation
           console.log("Cart clicked");
         }} 
       />
