@@ -75,7 +75,7 @@ export const foodItems = [
     name: "Fettuccine Alfredo",
     description: "Creamy pasta with parmesan cheese and garlic butter sauce",
     price: 130,
-    image: "https://images.unsplash.com/photo-1645112411341-6c4fd023882c?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.stockcake.com/public/1/c/9/1c9a18f9-cd9e-48c9-83be-1a3685c763a4/creamy-fettuccine-pasta-stockcake.jpg",
     category: "Pasta",
     rating: 4.3,
     prepTime: "25 min",
