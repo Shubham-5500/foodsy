@@ -9,12 +9,8 @@ const About = () => {
   const { isAuthenticated } = useAuth();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-foodsy-orange/5 to-foodsy-green/10 transition-colors duration-300">
-      <div className="absolute top-5 right-6 z-50">
-        <ThemeToggle />
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-foodsy-orange/5 to-foodsy-green/10 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
       <Navbar cartCount={0} onCartClick={() => {}} />
-      
       <div className="container mx-auto py-10 px-4 md:px-6">
         <section className="mb-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">About Foodsy</h1>

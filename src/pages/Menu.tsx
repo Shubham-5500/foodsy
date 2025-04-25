@@ -27,7 +27,7 @@ const Menu = () => {
 
 
   return (
-    <>
+    <div className="min-h-screen bg-gradient-to-br from-foodsy-orange/5 to-foodsy-green/10 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
     <Navbar 
         cartCount={0} 
         onCartClick={() => {
@@ -35,8 +35,8 @@ const Menu = () => {
         }}
   />
     <div className="p-8 max-w-5xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6">🍽️ Our Menu</h1>
-      <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <h1 className="text-3xl font-bold dark:text-white mb-6">🍽️ Our Menu</h1>
+      <ul className="grid sm:grid-cols-2 dark:text-white lg:grid-cols-3 gap-6">
         {dishes.map((dish) => (
           <li key={dish.id} className="border border-gray-200 rounded-lg p-6 shadow hover:shadow-md transition duration-300">
             <h3 className="text-xl font-semibold mb-1">{dish.name}</h3>
@@ -52,7 +52,7 @@ const Menu = () => {
       </ul>
     </div>
     <Footer />
-    </>
+    </div>
   );
 };
 

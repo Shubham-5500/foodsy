@@ -65,27 +65,27 @@ export default function Team() {
   ];
   return (
     <div className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">Meet Our Team</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center dark:text-white">Meet Our Team</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {teamMembers.map((member, index) => (
               <Card
                 key={index}
-                className="border border-border hover:border-primary/50 transition-colors"
+                className="border border-border hover:border-primary/50 dark:text-white transition-colors"
               >
                 <CardContent className="p-6 flex flex-col items-center text-center">
-                  <div className="w-24 h-24 rounded-full overflow-hidden mb-4 border-4 border-primary/20">
+                  <div className="w-24 h-24 rounded-full dark:text-white overflow-hidden mb-4 border-4 border-primary/20">
                     <img
                       src={member.image}
                       alt={member.name}
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <h3 className="text-lg font-semibold mb-1">{member.name}</h3>
+                  <h3 className="text-lg font-semibold dark:text-white mb-1">{member.name}</h3>
                   <div className="flex gap-3">
-                    <p className="text-foreground/90 hover:text-primary mb-3 text-sm">
+                    <p className="text-foreground/90 hover:text-primary dark:text-white mb-3 text-sm">
                       {member.linkedin}
                     </p>
-                    <p className="text-foreground/90 hover:text-primary mb-3 text-sm">
+                    <p className="text-foreground/90 hover:text-primary dark:text-white mb-3 text-sm">
                       {member.github}
                     </p>
                   </div>
