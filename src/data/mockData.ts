@@ -86,7 +86,7 @@ export const foodItems = [
     name: "Chocolate Lava Cake",
     description: "Warm chocolate cake with a molten chocolate center",
     price: 60,
-    image: "https://images.unsplash.com/photo-1586788680434-30d324626f4c?q=80&w=2051&auto=format&fit=crop",
+    image: "https://www.melskitchencafe.com/wp-content/uploads/2023/01/updated-lava-cakes7.jpg",
     category: "Dessert",
     rating: 4.9,
     prepTime: "15 min",
