@@ -62,11 +62,26 @@ export default function Team() {
       image: "/ayush.png",
       bio: "",
     },
+    {
+      name: "Shivam Kumar",
+      linkedin: (
+        <a href="https://www.linkedin.com/in/shivvx/">
+          <Linkedin></Linkedin>
+        </a>
+      ),
+      github: (
+        <a href="https://github.com/Shivamx-Dev/">
+          <Github></Github>
+        </a>
+      ),
+      image: "/shivam.png",
+      bio: "",
+    },
   ];
   return (
     <div className="mb-16">
           <h2 className="text-3xl font-bold mb-8 text-center dark:text-white">Meet Our Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
             {teamMembers.map((member, index) => (
               <Card
                 key={index}
