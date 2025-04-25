@@ -106,7 +106,7 @@ const Home = () => {
       <section className="bg-gradient-to-r from-foodsy-orange/20 to-foodsy-green/10 dark:from-foodsy-orange/10 dark:to-gray-800 py-16 md:py-20 px-2 md:px-4">
         <div className="container mx-auto text-center mb-8">
           <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-white mb-4 drop-shadow">
-            Craft. <span className="text-yellow">Connect.</span>  <span className="text-foodsy-orange">Connect.</span>  
+            <span className="text-foodsy-orange">Fine dining </span> without the fine print.  
           </h1>
           <p className="text-lg md:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-10">
             Order your favorite meals from the best restaurants in town and get them delivered to your door.
