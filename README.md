@@ -6,5 +6,5 @@ Foodsy is a modern, frontend-only food delivery website inspired by platforms li
 https://github.com/Shubham-5500/foodsy.git
 
 ### 2. RUN THE FOLLOWING COMMANDS IN THE TERMINAL
-1. npm install
+1. npm install(If not working, npm install build)
 2. npm run dev
