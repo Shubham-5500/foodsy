@@ -135,7 +135,7 @@ const Menu = () => {
       />
       <div className="pl-24 pr-24 pt-8 mx-auto">
         <h1 className="text-5xl font-bold dark:text-white mb-6">Our Menu</h1>
-        <ul className="grid sm:grid-cols-2 dark:text-white lg:grid-cols-3 gap-6">
+        <ul className="grid sm:grid-cols-2 dark:text-white lg:grid-cols-2 gap-8">
           {dishes.map((dish) => (
             <li
               key={dish.id}

@@ -9,10 +9,8 @@ import { useToast } from '@/components/ui/use-toast';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Badge } from '@/components/ui/badge';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 
-// Mock data for order history
 const mockOrders = [
   {
     id: "ORD-3847",
@@ -54,7 +52,6 @@ const mockOrders = [
   }
 ];
 
-// Mock data for current orders
 const mockCurrentOrders = [
   {
     id: "ORD-3921",
@@ -74,7 +71,6 @@ const mockCurrentOrders = [
   }
 ];
 
-// Helper functions for formatting
 const formatDate = (dateString) => {
   const date = new Date(dateString);
   return date.toLocaleDateString('en-IN', {
@@ -230,15 +226,13 @@ const ProfilePage = () => {
     name: user?.name || '',
     email: user?.email || ''
   });
-  
-  // Redirect if not authenticated
+
   if (!isAuthenticated) {
     return <Navigate to="/login" />;
   }
   
   const handleProfileUpdate = (e) => {
     e.preventDefault();
-    // Here you would typically make an API call to update the profile
     toast({
       title: "Profile updated",
       description: "Your profile information has been updated successfully.",
@@ -323,7 +317,7 @@ const ProfilePage = () => {
           </div>
           
           {/* Main Content */}
-          <div className="flex-1">
+          <div className="flex-1 dark:text-white">
             <Tabs defaultValue="current-orders" className="w-full">
               <TabsList className="grid w-full grid-cols-3 mb-8">
                 <TabsTrigger value="current-orders">Current Orders</TabsTrigger>
