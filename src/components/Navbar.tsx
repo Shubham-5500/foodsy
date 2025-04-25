@@ -39,13 +39,13 @@ const Navbar = ({ cartCount, onCartClick }: NavbarProps) => {
               Home
             </Link>
             <Link
-              to="#menu"
+              to="/menu"
               className="text-gray-700 dark:text-gray-300 hover:text-foodsy-orange transition-colors px-2 py-1"
             >
               Menu
             </Link>
             <Link
-              to="#offers"
+              to="/offers"
               className="text-gray-700 dark:text-gray-300 hover:text-foodsy-orange transition-colors px-2 py-1"
             >
               Offers
@@ -146,13 +146,13 @@ const Navbar = ({ cartCount, onCartClick }: NavbarProps) => {
                 Home
               </Link>
               <Link
-                to="#menu"
+                to="/menu"
                 className="text-gray-800 dark:text-gray-200 font-semibold text-lg py-2 hover:text-foodsy-orange transition-colors"
               >
                 Menu
               </Link>
               <Link
-                to="#offers"
+                to="/offers"
                 className="text-gray-800 dark:text-gray-200 font-semibold text-lg py-2 hover:text-foodsy-orange transition-colors"
               >
                 Offers

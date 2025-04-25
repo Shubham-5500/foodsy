@@ -3,6 +3,7 @@ import Navbar from '@/components/Navbar';
 import ThemeToggle from '@/components/ThemeToggle';
 import { useAuth } from '@/hooks/useAuth';
 import Footer from '@/components/Footer';
+import Team from '@/components/Team';
 
 const About = () => {
   const { isAuthenticated } = useAuth();
@@ -90,6 +91,7 @@ const About = () => {
             {isAuthenticated ? "Order Now" : "Sign In to Order"}
           </Link>
         </section>
+        <Team />
       </div>
       <Footer />
     </div>
