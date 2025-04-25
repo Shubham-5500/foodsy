@@ -45,7 +45,7 @@ const Navbar = ({ cartCount, onCartClick }: NavbarProps) => {
               Menu
             </Link>
             <Link
-              to="#offers"
+              to="/offers"
               className="text-gray-700 dark:text-gray-300 hover:text-foodsy-orange transition-colors px-2 py-1"
             >
               Offers
